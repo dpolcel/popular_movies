@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Popular Movies - Part 1</string>
+    <string name="popular_movies">Popular</string>
+    <string name="top_rated_movies">Top Rated</string>
+    <string name="refresh">Refresh</string>
+    <string name="no_internet_connection">There is no internet connection</string>
+    <string name="movie_overview">Overview:</string>
+    <string name="movie_release_date">Release Date: </string>
+    <string name="movie_average_vote">Average Vote: </string>
+</resources>
