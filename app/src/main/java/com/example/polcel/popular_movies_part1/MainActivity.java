@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.polcel.popular_movies_part1.models.Movie;
+import com.example.polcel.popular_movies_part1.utilities.GridAutofitLayoutManager;
 import com.example.polcel.popular_movies_part1.utilities.MoviesAPIParser;
 import com.example.polcel.popular_movies_part1.utilities.NetworkUtils;
 
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
 
         mAdapter = new MoviesAdapter(this);
 
-        mRecyclerViewMovies.setLayoutManager(new GridLayoutManager(this, 2));
+        mRecyclerViewMovies.setLayoutManager(new GridAutofitLayoutManager(this, 500));
         mRecyclerViewMovies.setAdapter(mAdapter);
 
         if (savedInstanceState != null) {
