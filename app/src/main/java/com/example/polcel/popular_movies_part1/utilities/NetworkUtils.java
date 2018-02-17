@@ -6,6 +6,8 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.util.Log;
 
+import com.example.polcel.popular_movies_part1.BuildConfig;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -26,12 +28,11 @@ public final class NetworkUtils {
     private final static String QUERY_POPULAR_PARAM = "popular";
     private final static String QUERY_TOP_RATED_PARAM = "top_rated";
     private final static String PATH_API_KEY = "api_key";
-    private final static String API_KEY = "PUT_YOUR_API_KEY_HERE";
 
     public static URL buildUrl(boolean getOnlyPopular) {
         Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
                 .appendPath(getOnlyPopular ? QUERY_POPULAR_PARAM : QUERY_TOP_RATED_PARAM)
-                .appendQueryParameter(PATH_API_KEY, API_KEY)
+                .appendQueryParameter(PATH_API_KEY, BuildConfig.MOVIES_DB_API_KEY)
                 .build();
 
         URL url = null;

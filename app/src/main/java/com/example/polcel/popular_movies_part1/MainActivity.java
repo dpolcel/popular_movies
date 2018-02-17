@@ -129,10 +129,11 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
 
         @Override
         protected void onPostExecute(ArrayList<Movie> result) {
-            if (result.size() > 0) {
-                mAdapter.setMoviesData(result);
+            if (result != null) {
+                if (result.size() > 0) {
+                    mAdapter.setMoviesData(result);
+                }
             }
-
             mProgressBarLoading.setVisibility(View.INVISIBLE);
         }
     }
