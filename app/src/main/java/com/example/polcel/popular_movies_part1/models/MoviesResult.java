@@ -16,6 +16,6 @@ public class MoviesResult {
         this.results = results;
     }
 
-    public List<Movie> results;
+    private List<Movie> results;
 
 }
