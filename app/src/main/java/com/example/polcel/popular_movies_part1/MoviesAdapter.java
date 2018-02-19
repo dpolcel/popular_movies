@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.example.polcel.popular_movies_part1.models.Movie;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by polcel on 10/02/2018.
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder> {
 
-    private ArrayList<Movie> mMovies;
+    private List<Movie> mMovies;
 
     final private MovieClickListener mOnClickListener;
 
@@ -30,7 +30,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
         mOnClickListener = listener;
     }
 
-    public void setMoviesData(ArrayList<Movie> moviesList) {
+    public void setMoviesData(List<Movie> moviesList) {
         mMovies = moviesList;
         notifyDataSetChanged();
     }

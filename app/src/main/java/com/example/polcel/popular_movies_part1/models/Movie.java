@@ -3,25 +3,40 @@ package com.example.polcel.popular_movies_part1.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by polcel on 10/02/2018.
  */
 
 public class Movie implements Parcelable {
+    private final String POSTER_PATH_BASE_URL = "http://image.tmdb.org/t/p/w780";
 
+    @SerializedName("vote_count")
     private int voteCount;
     private int id;
+    @SerializedName("vote_average")
     private double voteAverage;
     private String title;
     private double popularity;
+    @SerializedName("poster_path")
     private String posterPath;
+    @SerializedName("original_language")
     private String originalLanguage;
+    @SerializedName("original_title")
     private String originalTitle;
+    @SerializedName("genre_ids")
     private int[] genreIDS;
+    @SerializedName("backdrop_path")
     private String backdropPath;
     private boolean adult;
     private String overview;
+    @SerializedName("release_date")
     private String releaseDate;
+
+    public Movie() {
+    }
 
     Movie(Parcel in) {
         this.voteCount = in.readInt();
@@ -36,10 +51,6 @@ public class Movie implements Parcelable {
         this.adult = in.readByte() != 0;
         this.overview = in.readString();
         this.releaseDate = in.readString();
-    }
-
-    public Movie() {
-        posterPath = POSTER_PATH_BASE_URL;
     }
 
     public int getVoteCount() {
@@ -78,14 +89,12 @@ public class Movie implements Parcelable {
         return overview;
     }
 
-    private final String POSTER_PATH_BASE_URL = "http://image.tmdb.org/t/p/w780";
-
     public String getTitle() {
         return title;
     }
 
     public String getPosterPath() {
-        return posterPath;
+        return POSTER_PATH_BASE_URL + posterPath;
     }
 
     public String getOriginalTitle() {
@@ -105,7 +114,7 @@ public class Movie implements Parcelable {
     }
 
     public void setPosterPath(String posterPath) {
-        this.posterPath += posterPath;
+        this.posterPath = POSTER_PATH_BASE_URL + posterPath;
     }
 
     public void setPopularity(double popularity) {

@@ -1,7 +1,5 @@
 package com.example.polcel.popular_movies_part1.utilities;
 
-import android.util.Log;
-
 import com.example.polcel.popular_movies_part1.models.Movie;
 
 import org.json.JSONArray;
@@ -32,8 +30,15 @@ public class MoviesAPIParser {
                 movie.setPosterPath(jsonMovie.getString("poster_path"));
                 movie.setOriginalLanguage(jsonMovie.getString("original_language"));
                 movie.setOriginalTitle(jsonMovie.getString("original_title"));
-                //movie.setGenreIDS(jsonMovie.getJSONArray("genre_ids"));
-                movie.setBackdropPath(jsonMovie.getString("backdrop_path"));
+
+                JSONArray jsonGenreIDs = jsonMovie.getJSONArray("genre_ids");
+
+                int[] genreIDs = new int[jsonGenreIDs.length()];
+                for (int x = 0; x < jsonGenreIDs.length(); x++) {
+                    genreIDs[x] = jsonGenreIDs.getInt(x);
+                }
+
+                movie.setGenreIDS(genreIDs);
                 movie.setAdult(jsonMovie.getBoolean("adult"));
                 movie.setOverview(jsonMovie.getString("overview"));
                 movie.setReleaseDate(jsonMovie.getString("release_date"));

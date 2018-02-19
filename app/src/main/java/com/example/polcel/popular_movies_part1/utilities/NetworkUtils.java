@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.util.Log;
 
 import com.example.polcel.popular_movies_part1.BuildConfig;
 
@@ -23,7 +22,7 @@ public final class NetworkUtils {
 
     private static final String TAG = NetworkUtils.class.getSimpleName();
 
-    private static final String MOVIES_BASE_URL = "http://api.themoviedb.org/3/movie/";
+    public static final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/";
 
     private final static String QUERY_POPULAR_PARAM = "popular";
     private final static String QUERY_TOP_RATED_PARAM = "top_rated";

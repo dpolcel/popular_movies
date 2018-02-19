@@ -1,9 +1,9 @@
 package com.example.polcel.popular_movies_part1;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,16 +13,19 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MovieDetailsActivity extends AppCompatActivity {
     private static final String KEY_MOVIE_DETAILS = "movie_details";
 
     private Movie mSelectedMovie;
 
-    private TextView mMovieTitle;
-    private ImageView mMoviePicture;
-    private TextView mMovieYear;
-    private TextView mMovieRating;
-    private TextView mMovieOverview;
+    @BindView(R.id.movie_details_tv_title) private TextView mMovieTitle;
+    @BindView(R.id.movie_details_iv_movie_picture) private ImageView mMoviePicture;
+    @BindView(R.id.movie_details_tv_release_date) private TextView mMovieYear;
+    @BindView(R.id.movie_details_tv_movie_average_vote) private TextView mMovieRating;
+    @BindView(R.id.movie_details_tv_movie_overview) private TextView mMovieOverview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +34,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mMovieTitle = findViewById(R.id.movie_details_tv_title);
-        mMoviePicture = findViewById(R.id.movie_details_iv_movie_picture);
-        mMovieYear = findViewById(R.id.movie_details_tv_release_date);
-        mMovieRating = findViewById(R.id.movie_details_tv_movie_average_vote);
-        mMovieOverview = findViewById(R.id.movie_details_tv_movie_overview);
+        ButterKnife.bind(this);
 
         if (savedInstanceState != null) {
             if (savedInstanceState.getParcelable(KEY_MOVIE_DETAILS) != null) {
