@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Mov
 
     private MoviesAdapter mAdapter;
 
-    @BindView(R.id.rv_movies) private RecyclerView mRecyclerViewMovies;
-    @BindView(R.id.pb_loading_movies) private ProgressBar mProgressBarLoading;
+    @BindView(R.id.rv_movies) RecyclerView mRecyclerViewMovies;
+    @BindView(R.id.pb_loading_movies) ProgressBar mProgressBarLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
