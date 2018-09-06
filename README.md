@@ -1,4 +1,4 @@
 # Popular Movies, Stage 2
-First stage of popular movies project of Nanodegree Developer Program.
+Second stage of popular movies project of Nanodegree Developer Program.
 
 When testing it, you should go to /app/build.gradle file and check for your moviesDB api key.
